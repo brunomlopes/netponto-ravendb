@@ -6,7 +6,7 @@
 
 <h2> @Model.Title </h2>
 <p>
-@Model.Content
+@Html.Raw(Model.Content)
 </p>
 
 <p>@Html.ActionLink("Edit", "Edit")</p>

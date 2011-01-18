@@ -76,6 +76,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Core\Abstractions\IPageService.cs" />
     <Compile Include="Core\Implementations\InMemoryPageService.cs" />
+    <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,7 +130,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\WymEditor.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\HomePage\Index.cshtml" />
   </ItemGroup>

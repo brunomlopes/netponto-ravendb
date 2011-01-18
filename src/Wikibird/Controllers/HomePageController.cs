@@ -29,7 +29,8 @@ namespace Wikibird.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(string title, string content)
+        [ValidateInput(false)]
+        public ActionResult Edit(string title,  string content)
         {
             var page = new Page();
             page.Title = title;

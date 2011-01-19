@@ -32,10 +32,7 @@ namespace Wikibird.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(string title,  string content)
         {
-            var page = new Page();
-            page.Title = title;
-            page.Content = content;
-            _pageService.SavePage(_homePageName, page);
+            _pageService.SavePage(_homePageName, title, content);
             return RedirectToAction("Index");
         }
     }

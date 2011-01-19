@@ -5,6 +5,6 @@ namespace Wikibird.Core.Abstractions
     public interface IPageService
     {
         Page GetPage(string name);
-        void SavePage(string name, Page page);
+        void SavePage(string name, string title, string content);
     }
 }

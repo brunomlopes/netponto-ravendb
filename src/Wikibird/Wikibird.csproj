@@ -42,6 +42,12 @@
     <Reference Include="Autofac.Integration.Web">
       <HintPath>..\..\lib\Autofac\Autofac.Integration.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\RavenDB\Client\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\RavenDB\Client\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -67,9 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacModules\InMemoryCoreModule.cs" />
-    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="AutofacModules\RavenDbCoreModule.cs" />
+	<Compile Include="Controllers\PageController.cs" />
     <Compile Include="Core\Abstractions\IPageService.cs" />
     <Compile Include="Core\Implementations\InMemoryPageService.cs" />
+    <Compile Include="Core\Implementations\RavenPageService.cs" />
     <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -96,7 +104,9 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

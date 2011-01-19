@@ -46,7 +46,7 @@ namespace Wikibird
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule(new AutofacWebTypesModule());
 
-            builder.RegisterModule(new InMemoryCoreModule());
+            builder.RegisterModule(new RavenDbCoreModule());
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

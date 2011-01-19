@@ -26,6 +26,12 @@ namespace Wikibird
                 "edit/{*pageName}", // URL with parameters
                 new { controller = "Page", action = "Edit", pageName = "Homepage" }
                 );
+            
+            routes.MapRoute(
+                "New", // Route name
+                "new/{*pageName}", // URL with parameters
+                new { controller = "Page", action = "New", pageName = "Homepage" }
+                );
 
             routes.MapRoute(
                 "Default", // Route name

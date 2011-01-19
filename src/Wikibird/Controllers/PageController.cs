@@ -35,5 +35,11 @@ namespace Wikibird.Controllers
             _pageService.SavePage(pageName, title, content);
             return RedirectToAction("Index");
         }
+        
+        [HttpPost]
+        public ActionResult New(string pageName, string newPageName)
+        {
+            return RedirectToAction("Edit", new{pageName = newPageName});
+        }
     }
 }

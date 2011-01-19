@@ -14,4 +14,10 @@
 
 <div style="float:right;width:200px;">
     @Html.Partial("PageList", Model.PageNames)
+    
+    @using (Html.BeginRouteForm("New"))
+    {
+        @Html.TextBox("newPageName")
+        <input type="submit" value="New" class="wymupdate"/>
+    }
 </div>

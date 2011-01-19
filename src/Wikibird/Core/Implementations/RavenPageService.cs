@@ -18,8 +18,7 @@ namespace Wikibird.Core.Implementations
 
         public Page GetPage(string name)
         {
-            return _session.Query<Page>()
-                .SingleOrDefault(p => p.Name == name) ?? Page.EmptyPage(name);
+            return _session.Load<Page>(name.AsPageId()) ?? Page.EmptyPage(name);
         }
 
         public void SavePage(string name, string title, string content)

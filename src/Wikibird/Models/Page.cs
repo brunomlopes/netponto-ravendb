@@ -9,6 +9,7 @@ namespace Wikibird.Models
     {
         public static Func<string,Page> EmptyPage = name => new Page(){Name = name};
 
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
+﻿using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
@@ -26,11 +22,16 @@ namespace Wikibird
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "HomePage", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+                "Edit", // Route name
+                "edit/{*pageName}", // URL with parameters
+                new { controller = "Page", action = "Edit", pageName = "Homepage" }
+                );
 
+            routes.MapRoute(
+                "Default", // Route name
+                "{*pageName}", // URL with parameters
+                new { controller = "Page", action = "Index", pageName = "Homepage" }
+            );
         }
 
         private static void ConfigureAutofac()

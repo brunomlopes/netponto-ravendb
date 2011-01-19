@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacModules\InMemoryCoreModule.cs" />
-    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Core\Abstractions\IPageService.cs" />
     <Compile Include="Core\Implementations\InMemoryPageService.cs" />
     <Compile Include="Extensions\TemplateExtensions.cs" />
@@ -128,10 +128,10 @@
     <Content Include="Views\Shared\EditorTemplates\WymEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\Page\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\HomePage\Edit.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

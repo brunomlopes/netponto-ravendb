@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Raven.Client;
 using Wikibird.Core.Abstractions;
 using Wikibird.Models;
 
@@ -7,19 +9,33 @@ namespace Wikibird.Core.Implementations
 {
     public class RavenPageService : IPageService
     {
+        private readonly IDocumentSession _session;
+
+        public RavenPageService(IDocumentSession session)
+        {
+            _session = session;
+        }
+
         public Page GetPage(string name)
         {
-            throw new NotImplementedException();
+            return _session.Query<Page>()
+                .SingleOrDefault(p => p.Name == name) ?? Page.EmptyPage(name);
         }
 
         public void SavePage(string name, string title, string content)
         {
-            throw new NotImplementedException();
+            var page = GetPage(name);
+
+            page.Name = name;
+            page.Title = title;
+            page.Content = content;
+            _session.Store(page);
         }
 
         public IEnumerable<PageTitle> GetPageNames()
         {
-            throw new NotImplementedException();
+            return _session.Query<Page>()
+                .Select(p => new PageTitle() { Name = p.Name, Title = p.Title });
         }
     }
 }

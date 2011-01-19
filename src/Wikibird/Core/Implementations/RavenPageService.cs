@@ -21,7 +21,7 @@ namespace Wikibird.Core.Implementations
             return _session.Load<Page>(name.AsPageId()) ?? Page.EmptyPage(name);
         }
 
-        public void SavePage(string name, string title, string content)
+        public void SavePage(string name, string title, string content, string[] tags)
         {
             var page = GetPage(name);
 

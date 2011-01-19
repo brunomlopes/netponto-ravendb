@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
@@ -15,5 +16,12 @@ namespace Wikibird.Models
 
         [UIHint("WymEditor")]
         public string Content { get; set; }
+
+        public IList<string> Tags { get; set; }
+
+        public Page()
+        {
+            Tags = new List<string>();
+        }
     }
 }

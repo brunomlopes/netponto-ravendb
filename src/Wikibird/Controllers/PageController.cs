@@ -30,9 +30,9 @@ namespace Wikibird.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(string pageName, string title, string content)
+        public ActionResult Edit(string pageName, string title, string content, string tags)
         {
-            _pageService.SavePage(pageName, title, content);
+            _pageService.SavePage(pageName, title, content, tags.Split(',').Select(s => s.Trim()).ToArray());
             return RedirectToAction("Index");
         }
         

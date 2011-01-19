@@ -9,6 +9,12 @@
     <p>
     @Html.Raw(Model.Page.Content)
     </p>
+    <p>
+    @if(Model.Page.Tags.Count > 0) 
+    {
+        <text>Tags:</text> @string.Join(", ", Model.Page.Tags)
+    }
+    </p>
     <p>@Html.ActionLink("Edit", "Edit")</p>
 </div>
 

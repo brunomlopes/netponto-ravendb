@@ -19,7 +19,7 @@ namespace Wikibird.Core.Implementations
             return _pages.ContainsKey(name) ? _pages[name] : Page.EmptyPage(name);
         }
 
-        public void SavePage(string name, string title, string content)
+        public void SavePage(string name, string title, string content, string[] tags)
         {
             Page page;
             if(!_pages.TryGetValue(name, out page))

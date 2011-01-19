@@ -30,6 +30,14 @@
             @Html.EditorFor(model => model.Content)
             @Html.ValidationMessageFor(model => model.Content)
         </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tags)
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("tags", string.Join(",", Model.Tags), new { style = "width:100%" })
+            @Html.ValidationMessage("tags")
+        </div>
 
         <p>
             <input type="submit" value="Save" class="wymupdate"/>

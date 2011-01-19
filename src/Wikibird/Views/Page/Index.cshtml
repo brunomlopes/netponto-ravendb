@@ -1,12 +1,17 @@
-﻿@model Wikibird.Models.Page
+﻿@model Wikibird.Models.PageViewModel
 
 @{
-    ViewBag.Title = Model.Title ;
+    ViewBag.Title = Model.Page.Title ;
 }
 
-<h2> @Model.Title </h2>
-<p>
-@Html.Raw(Model.Content)
-</p>
+<div style="float:left;width:600px;">
+    <h2> @Model.Page.Title </h2>
+    <p>
+    @Html.Raw(Model.Page.Content)
+    </p>
+    <p>@Html.ActionLink("Edit", "Edit")</p>
+</div>
 
-<p>@Html.ActionLink("Edit", "Edit")</p>
+<div style="float:right;width:200px;">
+    @Html.Partial("PageList", Model.PageNames)
+</div>

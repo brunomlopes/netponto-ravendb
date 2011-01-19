@@ -1,0 +1,11 @@
+﻿@model string[]
+
+<h2>
+Pages
+</h2>
+<ul>
+@foreach (var name in Model)
+{ 
+    <li>@Html.ActionLink(name, "Index", new { pageName = name })</li>
+}
+</ul>

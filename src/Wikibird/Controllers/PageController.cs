@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Wikibird.Core.Abstractions;
+using Wikibird.Models;
 
 namespace Wikibird.Controllers
 {
@@ -15,7 +17,8 @@ namespace Wikibird.Controllers
         public ActionResult Index(string pageName)
         {
             var page = _pageService.GetPage(pageName);
-            return View(page);
+            var pageNames = _pageService.GetPageNames();
+            return View(new PageViewModel {Page = page, PageNames = pageNames.ToArray() });
         }
 
         [HttpGet]

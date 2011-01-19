@@ -1,4 +1,5 @@
-﻿using Wikibird.Models;
+﻿using System.Collections.Generic;
+using Wikibird.Models;
 
 namespace Wikibird.Core.Abstractions
 {
@@ -6,5 +7,6 @@ namespace Wikibird.Core.Abstractions
     {
         Page GetPage(string name);
         void SavePage(string name, string title, string content);
+        IEnumerable<string> GetPageNames();
     }
 }

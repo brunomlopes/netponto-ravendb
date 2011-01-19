@@ -30,5 +30,10 @@ namespace Wikibird.Core.Implementations
             page.Content = content;
             _pages[name] = page;
         }
+
+        public IEnumerable<string> GetPageNames()
+        {
+            return _pages.Keys;
+        }
     }
 }

@@ -15,11 +15,12 @@ namespace Wikibird.Core.Implementations
 
         public Page GetPage(string name)
         {
-            return _pages.ContainsKey(name) ? _pages[name] : Page.EmptyPage;
+            return _pages.ContainsKey(name) ? _pages[name] : Page.EmptyPage(name);
         }
 
         public void SavePage(string name, Page page)
         {
+            page.Name = name;
             _pages[name] = page;
         }
     }

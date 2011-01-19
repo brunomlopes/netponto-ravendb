@@ -7,6 +7,6 @@ namespace Wikibird.Core.Abstractions
     {
         Page GetPage(string name);
         void SavePage(string name, string title, string content);
-        IEnumerable<string> GetPageNames();
+        IEnumerable<PageTitle> GetPageNames();
     }
 }

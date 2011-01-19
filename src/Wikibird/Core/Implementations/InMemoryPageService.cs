@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Wikibird.Core.Abstractions;
 using Wikibird.Models;
+using System.Linq;
 
 namespace Wikibird.Core.Implementations
 {
@@ -31,9 +32,9 @@ namespace Wikibird.Core.Implementations
             _pages[name] = page;
         }
 
-        public IEnumerable<string> GetPageNames()
+        public IEnumerable<PageTitle> GetPageNames()
         {
-            return _pages.Keys;
+            return _pages.Values.Select(page => new PageTitle {Name = page.Name, Title = page.Title});
         }
     }
 }

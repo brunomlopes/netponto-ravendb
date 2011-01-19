@@ -1,11 +1,11 @@
-﻿@model string[]
+﻿@model Wikibird.Models.PageTitle[]
 
 <h2>
 Pages
 </h2>
 <ul>
-@foreach (var name in Model)
+@foreach (var page in Model)
 { 
-    <li>@Html.ActionLink(name, "Index", new { pageName = name })</li>
+    <li>@Html.ActionLink(page.Title, "Index", new { pageName = page.Name })</li>
 }
 </ul>

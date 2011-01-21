@@ -13,7 +13,11 @@
     <p>
     @if(Model.Page.Tags.Count > 0) 
     {
-        <text>Tags:</text> @string.Join(", ", Model.Page.Tags)
+        <text>Tags:</text>
+        foreach(var tag in Model.Page.Tags) 
+        {
+            <text> @Html.RouteLink(tag, "Tag", new { tag = tag }) </text>
+        }
     }
     </p>
     <p>@Html.ActionLink("Edit", "Edit")</p>

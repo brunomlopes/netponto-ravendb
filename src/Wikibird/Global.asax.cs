@@ -34,6 +34,12 @@ namespace Wikibird
                 );
             
             routes.MapRoute(
+                "Tag", // Route name
+                "tag/{*tag}", // URL with parameters
+                new { controller = "Tag", action = "Index", tag = "Default" }
+                );
+            
+            routes.MapRoute(
                 "New", // Route name
                 "new/{*pageName}", // URL with parameters
                 new { controller = "Page", action = "New", pageName = "Homepage" }

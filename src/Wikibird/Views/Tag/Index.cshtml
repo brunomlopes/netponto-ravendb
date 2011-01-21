@@ -1,0 +1,14 @@
+﻿@model Wikibird.Models.TagViewModel
+
+@{
+    ViewBag.Title = "Tag:"+Model.Tag;
+}
+
+<h2>@Model.Tag - @Model.TotalCount pages</h2>
+<ul>
+@foreach (var page in Model.Pages)
+{
+    <li>@Html.RouteLink(page.Name, "Default", new { pageName = page.Name })</li>
+}
+</ul>
+

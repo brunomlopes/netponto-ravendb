@@ -38,9 +38,14 @@ namespace Wikibird.Core.Implementations
             return _pages.Values.Select(page => new PageTitle {Name = page.Name, Title = page.Title});
         }
 
-        public ListCategoryResult ListCategory(string category)
+        public ListResult ListCategory(string category)
         {
-            return new ListCategoryResult();
+            return new ListResult();
+        }
+
+        public ListResult ListTag(string tag)
+        {
+            return new ListResult();
         }
     }
 }

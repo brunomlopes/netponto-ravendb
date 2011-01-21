@@ -8,12 +8,14 @@ namespace Wikibird.Core.Abstractions
         Page GetPage(string name);
         void SavePage(string name, string title, string content, string[] tags);
         IEnumerable<PageTitle> GetPageNames();
-        ListCategoryResult ListCategory(string category);
+        ListResult ListCategory(string category);
+        ListResult ListTag(string tag);
     }
 
-    public class ListCategoryResult
+    public class ListResult
     {
         public IEnumerable<Page> Pages { get; set; }
         public int TotalCount { get; set; }
     }
+    
 }

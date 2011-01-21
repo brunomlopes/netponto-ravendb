@@ -39,15 +39,24 @@ namespace Wikibird.Core.Implementations
                 .Select(p => new PageTitle() { Name = p.Name, Title = p.Title });
         }
 
-        public ListCategoryResult ListCategory(string category)
+        public ListResult ListCategory(string category)
         {
             RavenQueryStatistics stats;
             var result = _session.Query<Page>()
-                .Customize(q => q.WaitForNonStaleResultsAsOfNow())
                 .Statistics(out stats)
                 .Where(p => p.Category == category);
 
-            return new ListCategoryResult() {Pages = result, TotalCount = stats.TotalResults};
+            return new ListResult() {Pages = result, TotalCount = stats.TotalResults};
+        }
+
+        public ListResult ListTag(string tag)
+        {
+            RavenQueryStatistics stats;
+            var result = _session.Query<Page>()
+                .Statistics(out stats)
+                .Where(p => p.Tags.Contains(tag));
+
+            return new ListResult() { Pages = result, TotalCount = stats.TotalResults };
         }
     }
 }

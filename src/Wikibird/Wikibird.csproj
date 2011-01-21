@@ -82,6 +82,7 @@
     <Compile Include="Core\Implementations\DocumentStoreFactory.cs" />
     <Compile Include="Core\Implementations\Indexes\Pages_ByCategory.cs" />
     <Compile Include="Core\Implementations\Indexes\Pages_ByTag.cs" />
+    <Compile Include="Core\Implementations\Indexes\Pages_NameAndTitle.cs" />
     <Compile Include="Core\Implementations\InMemoryPageService.cs" />
     <Compile Include="Core\Implementations\PageIdGenerator.cs" />
     <Compile Include="Core\Implementations\RavenPageService.cs" />

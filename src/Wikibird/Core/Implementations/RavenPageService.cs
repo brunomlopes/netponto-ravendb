@@ -36,8 +36,7 @@ namespace Wikibird.Core.Implementations
 
         public IEnumerable<PageTitle> GetPageNames()
         {
-            return _session.Query<Page>()
-                .Select(p => new PageTitle() { Name = p.Name, Title = p.Title });
+            return _session.Advanced.LuceneQuery<Page, Pages_NameAndTitle>().SelectFields<PageTitle>("Name", "Title");
         }
 
         public ListResult ListCategory(string category)

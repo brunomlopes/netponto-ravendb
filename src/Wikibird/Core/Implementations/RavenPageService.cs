@@ -54,7 +54,7 @@ namespace Wikibird.Core.Implementations
             RavenQueryStatistics stats;
             var result = _session.Query<Page>()
                 .Statistics(out stats)
-                .Where(p => p.Tags.Contains(tag));
+                .Where(p => p.Tags.Any(t => t==tag));
 
             return new ListResult() { Pages = result, TotalCount = stats.TotalResults };
         }

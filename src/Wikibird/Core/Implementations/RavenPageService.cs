@@ -4,6 +4,7 @@ using System.Linq;
 using Raven.Client;
 using Raven.Client.Linq;
 using Wikibird.Core.Abstractions;
+using Wikibird.Core.Implementations.Indexes;
 using Wikibird.Models;
 
 namespace Wikibird.Core.Implementations
@@ -41,22 +42,18 @@ namespace Wikibird.Core.Implementations
 
         public ListResult ListCategory(string category)
         {
-            RavenQueryStatistics stats;
-            var result = _session.Query<Page>()
-                .Statistics(out stats)
-                .Where(p => p.Category == category);
+            var result = _session.Advanced.LuceneQuery<Page, Pages_ByCategory>()
+                .Where("Category:" + category);
 
-            return new ListResult(result, stats);
+            return new ListResult(result, new RavenQueryStatistics(){TotalResults = result.QueryResult.TotalResults});
         }
 
         public ListResult ListTag(string tag)
         {
-            RavenQueryStatistics stats;
-            var result = _session.Query<Page>()
-                .Statistics(out stats)
-                .Where(p => p.Tags.Any(t => t==tag));
+            var result = _session.Advanced.LuceneQuery<Page, Pages_ByTag>()
+                .Where("Tag:"+tag);
 
-            return new ListResult(result, stats);
+            return new ListResult(result, new RavenQueryStatistics() { TotalResults = result.QueryResult.TotalResults });
         }
     }
 }

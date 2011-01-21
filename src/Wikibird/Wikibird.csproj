@@ -48,6 +48,7 @@
     <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
       <HintPath>..\..\lib\RavenDB\Client\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -79,6 +80,8 @@
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Core\Abstractions\IPageService.cs" />
     <Compile Include="Core\Implementations\DocumentStoreFactory.cs" />
+    <Compile Include="Core\Implementations\Indexes\Pages_ByCategory.cs" />
+    <Compile Include="Core\Implementations\Indexes\Pages_ByTag.cs" />
     <Compile Include="Core\Implementations\InMemoryPageService.cs" />
     <Compile Include="Core\Implementations\PageIdGenerator.cs" />
     <Compile Include="Core\Implementations\RavenPageService.cs" />

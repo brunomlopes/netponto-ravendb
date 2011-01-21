@@ -1,6 +1,7 @@
 using System;
 using Raven.Client;
 using Raven.Client.Document;
+using Raven.Client.Indexes;
 using Wikibird.Models;
 
 namespace Wikibird.Core.Implementations
@@ -18,7 +19,9 @@ namespace Wikibird.Core.Implementations
             if (!string.IsNullOrWhiteSpace(Url))
                 documentStore.Url = Url;
             SetupKeyGeneratorForPage(documentStore);
-            return documentStore.Initialize();
+            documentStore.Initialize();
+            IndexCreation.CreateIndexes(this.GetType().Assembly, documentStore);
+            return documentStore;
         }
 
         private static void SetupKeyGeneratorForPage(IDocumentStore documentStore)

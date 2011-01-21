@@ -2732,6 +2732,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Raven.Client.IAsyncDocumentSession.Query``1(System.String)">
+            <summary>
+            Queries the specified index using Linq.
+            </summary>
+            <typeparam name="T">The result of the query</typeparam>
+            <param name="indexName">Name of the index.</param>
+        </member>
+        <member name="M:Raven.Client.IAsyncDocumentSession.Query``1">
+            <summary>
+            Dynamically queries RavenDB using LINQ
+            </summary>
+            <typeparam name="T">The result of the query</typeparam>
+        </member>
         <member name="P:Raven.Client.IAsyncDocumentSession.Advanced">
             <summary>
             Get the accessor for advanced operations
@@ -2891,6 +2904,16 @@
             </summary>
             <value>The async database commands.</value>
         </member>
+        <member name="T:Raven.Client.Linq.IDocumentQueryGenerator">
+            <summary>
+             Generate a new document query
+            </summary>
+        </member>
+        <member name="M:Raven.Client.Linq.IDocumentQueryGenerator.Query``1(System.String)">
+            <summary>
+            Create a new query for <typeparam name="T"/>
+            </summary>
+        </member>
         <member name="M:Raven.Client.Document.Async.AsyncDocumentSession.#ctor(Raven.Client.Document.DocumentStore,Raven.Client.Client.Async.IAsyncDatabaseCommands,Raven.Client.IDocumentQueryListener[],Raven.Client.IDocumentStoreListener[],Raven.Client.IDocumentDeleteListener[])">
             <summary>
             Initializes a new instance of the <see cref="T:Raven.Client.Document.Async.AsyncDocumentSession"/> class.
@@ -2949,6 +2972,12 @@
             </summary>
             <param name="fromTxId">From tx id.</param>
             <returns></returns>
+        </member>
+        <member name="M:Raven.Client.Document.Async.AsyncDocumentSession.Query``1">
+            <summary>
+            Dynamically queries RavenDB using LINQ
+            </summary>
+            <typeparam name="T">The result of the query</typeparam>
         </member>
         <member name="P:Raven.Client.Document.Async.AsyncDocumentSession.AsyncDatabaseCommands">
             <summary>
@@ -3109,6 +3138,13 @@
             <param name="fields">The fields.</param>
         </member>
         <member name="P:Raven.Client.IDocumentQuery`1.QueryResult">
+            <summary>
+            Gets the query result
+            Execute the query the first time that this is called.
+            </summary>
+            <value>The query result.</value>
+        </member>
+        <member name="P:Raven.Client.IDocumentQuery`1.QueryResultAsync">
             <summary>
             Gets the query result
             Execute the query the first time that this is called.
@@ -3409,6 +3445,14 @@
             </returns>
             <filterpriority>2</filterpriority>
         </member>
+        <member name="M:Raven.Client.Document.DocumentQuery`1.ToString">
+            <summary>
+              Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+              A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
         <member name="P:Raven.Client.Document.DocumentQuery`1.Raven#Client#IDocumentQueryBase{T@Raven#Client#IDocumentQuery{T}}#Not">
             <summary>
             Negate the next operation
@@ -3588,16 +3632,6 @@
             Gets the async database commands.
             </summary>
             <value>The async database commands.</value>
-        </member>
-        <member name="T:Raven.Client.Linq.IDocumentQueryGenerator">
-            <summary>
-             Generate a new document query
-            </summary>
-        </member>
-        <member name="M:Raven.Client.Linq.IDocumentQueryGenerator.Query``1(System.String)">
-            <summary>
-            Create a new query for <typeparam name="T"/>
-            </summary>
         </member>
         <member name="M:Raven.Client.Document.DocumentSession.#ctor(Raven.Client.Document.DocumentStore,Raven.Client.IDocumentQueryListener[],Raven.Client.IDocumentStoreListener[],Raven.Client.IDocumentDeleteListener[],Raven.Client.Client.IDatabaseCommands,Raven.Client.Client.Async.IAsyncDatabaseCommands)">
             <summary>
@@ -5859,6 +5893,11 @@
         <member name="M:Raven.Client.Linq.LinqExtensions.Hierarchy``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
             <summary>
             Marker method for allowing hierarchical queries on the server.
+            </summary>
+        </member>
+        <member name="M:Raven.Client.Linq.LinqExtensions.ToListAsync``1(Raven.Client.Linq.IRavenQueryable{``0})">
+            <summary>
+            Returns a list of results for a query asynchronously. 
             </summary>
         </member>
         <member name="T:Raven.Client.Linq.RavenQueryProvider`1">

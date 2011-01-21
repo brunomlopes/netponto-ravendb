@@ -2216,6 +2216,14 @@
             </returns>
             <filterpriority>2</filterpriority>
         </member>
+        <member name="M:Raven.Client.Document.DocumentQuery`1.ToString">
+            <summary>
+              Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+              A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
         <member name="P:Raven.Client.Document.DocumentQuery`1.Raven#Client#IDocumentQueryBase{T@Raven#Client#IDocumentQuery{T}}#Not">
             <summary>
             Negate the next operation

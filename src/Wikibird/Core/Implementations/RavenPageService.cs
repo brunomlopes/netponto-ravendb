@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
+using Raven.Client.Linq;
 using Wikibird.Core.Abstractions;
 using Wikibird.Models;
 
@@ -36,6 +37,17 @@ namespace Wikibird.Core.Implementations
         {
             return _session.Query<Page>()
                 .Select(p => new PageTitle() { Name = p.Name, Title = p.Title });
+        }
+
+        public ListCategoryResult ListCategory(string category)
+        {
+            RavenQueryStatistics stats;
+            var result = _session.Query<Page>()
+                .Customize(q => q.WaitForNonStaleResultsAsOfNow())
+                .Statistics(out stats)
+                .Where(p => p.Category == category);
+
+            return new ListCategoryResult() {Pages = result, TotalCount = stats.TotalResults};
         }
     }
 }

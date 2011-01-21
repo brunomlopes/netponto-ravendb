@@ -28,6 +28,12 @@ namespace Wikibird
                 );
             
             routes.MapRoute(
+                "Category", // Route name
+                "category/{*category}", // URL with parameters
+                new { controller = "Category", action = "Index", category = "Default" }
+                );
+            
+            routes.MapRoute(
                 "New", // Route name
                 "new/{*pageName}", // URL with parameters
                 new { controller = "Page", action = "New", pageName = "Homepage" }

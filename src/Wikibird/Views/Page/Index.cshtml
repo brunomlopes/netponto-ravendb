@@ -6,6 +6,7 @@
 
 <div style="float:left;width:600px;">
     <h2> @Model.Page.Title </h2>
+    <h3>@Html.RouteLink(Model.Page.Category, "Category", new {category=Model.Page.Category})</h3>
     <p>
     @Html.Raw(Model.Page.Content)
     </p>

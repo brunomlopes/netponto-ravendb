@@ -18,6 +18,7 @@ namespace Wikibird.Models
         public string Content { get; set; }
 
         public IList<string> Tags { get; set; }
+        public string Category { get; set; }
 
         public Page()
         {

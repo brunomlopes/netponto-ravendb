@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Wikibird.Core.Abstractions;
 using Wikibird.Models;
 using System.Linq;
@@ -35,6 +36,11 @@ namespace Wikibird.Core.Implementations
         public IEnumerable<PageTitle> GetPageNames()
         {
             return _pages.Values.Select(page => new PageTitle {Name = page.Name, Title = page.Title});
+        }
+
+        public ListCategoryResult ListCategory(string category)
+        {
+            return new ListCategoryResult();
         }
     }
 }

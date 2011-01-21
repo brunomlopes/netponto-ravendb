@@ -1,0 +1,29 @@
+import clr
+import sys
+from System.IO import Path, Directory, File
+
+directory = r"D:\temp\ptwiki-20101031-pages-articles.xml\files"
+
+for dll in (Path.GetFullPath(p) for p in Directory.GetFiles(r".\src\Wikibird\bin")
+            if p.endswith("dll")):
+    clr.AddReferenceToFileAndPath(dll)
+
+
+from Wikibird.Models import Page
+from Wikibird.Core.Implementations import DocumentStoreFactory
+documentStoreFactory = DocumentStoreFactory()
+documentStoreFactory.Url = "http://localhost:8080"
+documentStore = documentStoreFactory.CreateDocumentStore()
+
+with documentStore.OpenSession() as session:
+    for textpath in list((d for d in Directory.GetFiles(directory) if Path.GetFileName(d).startswith("text_"))):
+        page = Page()
+        title = page.Title = Path.GetFileName(textpath)[5:-4]
+        page.Name = page.Title
+        page.Content = File.ReadAllText(textpath)
+        page.Category = File.ReadAllText(directory+"\\cat_"+title+".txt")
+        page.Tags = File.ReadAllLines(directory+"\\tags_"+title+".txt")
+        session.Store(page)        
+    session.SaveChanges()
+
+    

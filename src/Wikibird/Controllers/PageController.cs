@@ -19,7 +19,8 @@ namespace Wikibird.Controllers
             var page = _pageService.GetPage(pageName);
             var pageNames = _pageService.GetPageNames();
             return View(new PageViewModel {Page = page, PageNames = pageNames.ToArray() });
-        }
+        } 
+       
 
         [HttpGet]
         public ActionResult Edit(string pageName)

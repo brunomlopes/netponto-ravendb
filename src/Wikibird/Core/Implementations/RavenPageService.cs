@@ -28,6 +28,7 @@ namespace Wikibird.Core.Implementations
             page.Name = name;
             page.Title = title;
             page.Content = content;
+            page.Tags = tags;
             _session.Store(page);
         }
 

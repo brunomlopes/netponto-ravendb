@@ -40,12 +40,12 @@ namespace Wikibird.Core.Implementations
 
         public ListResult ListCategory(string category)
         {
-            return new ListResult();
+            throw new NotImplementedException();
         }
 
         public ListResult ListTag(string tag)
         {
-            return new ListResult();
+            throw new NotImplementedException();
         }
     }
 }

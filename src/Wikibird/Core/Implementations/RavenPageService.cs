@@ -46,7 +46,7 @@ namespace Wikibird.Core.Implementations
                 .Statistics(out stats)
                 .Where(p => p.Category == category);
 
-            return new ListResult() {Pages = result, TotalCount = stats.TotalResults};
+            return new ListResult(result, stats);
         }
 
         public ListResult ListTag(string tag)
@@ -56,7 +56,7 @@ namespace Wikibird.Core.Implementations
                 .Statistics(out stats)
                 .Where(p => p.Tags.Any(t => t==tag));
 
-            return new ListResult() { Pages = result, TotalCount = stats.TotalResults };
+            return new ListResult(result, stats);
         }
     }
 }

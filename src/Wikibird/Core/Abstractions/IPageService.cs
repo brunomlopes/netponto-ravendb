@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Raven.Client.Linq;
 using Wikibird.Models;
 
 namespace Wikibird.Core.Abstractions
@@ -14,8 +17,16 @@ namespace Wikibird.Core.Abstractions
 
     public class ListResult
     {
+        private readonly RavenQueryStatistics _stats;
+
+        public ListResult(IEnumerable<Page> pages, RavenQueryStatistics stats)
+        {
+            _stats = stats;
+            Pages = pages;
+        }
+
         public IEnumerable<Page> Pages { get; set; }
-        public int TotalCount { get; set; }
+        public int TotalCount { get { return _stats.TotalResults; } }
     }
     
 }
